@@ -1,0 +1,11 @@
+.navbar-brand img{
+    width: 100px;
+}
+.navbar-collapse {
+    flex-grow: 0.1 !important;
+    justify-content: space-evenly;
+}
+.nav-link{
+    color: black !important;
+    border-radius: 7%;
+}

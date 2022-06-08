@@ -1,0 +1,89 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "imgUrl": "https://i.ibb.co/z2C76zT/pizza6.jpg",
+      "title": "Cheeseburger",
+      "Rs": 100
+    },
+    {
+      "id": 2,
+      "imgUrl": "https://i.ibb.co/YdHvYMM/pizza.jpg",
+      "title": "Don Bacon",
+      "Rs": 150
+    },
+    {
+      "id": 3,
+      "imgUrl": "https://i.ibb.co/LJm0S4z/pizza2.jpg",
+      "title": "Carne",
+      "Rs": 200
+    },
+    {
+      "id": 4,
+      "imgUrl": "https://i.ibb.co/2M27K4L/pizza3.jpg",
+      "title": "Julienne",
+      "Rs": 300
+    },
+    {
+      "id": 5,
+      "imgUrl": "https://i.ibb.co/HxK9FBk/pizza4.jpg",
+      "title": "5 cheeze",
+      "Rs": 100
+    },
+    {
+      "id": 6,
+      "imgUrl": "https://i.ibb.co/RSGQrTq/pizza5.jpg",
+      "title": "Cipolo",
+      "Rs": 250
+    }
+  ],
+  "register": [
+    {
+      "fName": "manu",
+      "lName": "gowda",
+      "email": "m@gamil.com",
+      "password": "Manu123",
+      "confirmPassword": "Manu123",
+      "id": 1
+    },
+    {
+      "fName": "manu",
+      "lName": "gowda",
+      "email": "m@gamil.com",
+      "password": "1234455",
+      "confirmPassword": "12334",
+      "id": 2
+    },
+    {
+      "fName": "manu",
+      "lName": "gowda",
+      "email": "m@gamil.com",
+      "password": "123",
+      "confirmPassword": "123",
+      "id": 3
+    }
+  ],
+  "cartItems": [
+    {
+      "id": 1,
+      "imgUrl": "https://i.ibb.co/z2C76zT/pizza6.jpg",
+      "title": "Cheeseburger",
+      "Rs": 100,
+      "qty": null
+    },
+    {
+      "id": 2,
+      "imgUrl": "https://i.ibb.co/YdHvYMM/pizza.jpg",
+      "title": "Don Bacon",
+      "Rs": 150,
+      "qty": 1
+    },
+    {
+      "id": 3,
+      "imgUrl": "https://i.ibb.co/LJm0S4z/pizza2.jpg",
+      "title": "Carne",
+      "Rs": 200,
+      "qty": 1
+    }
+  ]
+}
