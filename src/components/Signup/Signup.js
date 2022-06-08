@@ -3,45 +3,44 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 
+import MainNav from '../Navbar/MainNav';
+
 function Signup() {
   let history = useNavigate(); 
 
-   const [validation, setValidation] = useState({
+  const [validation, setValidation] = useState({
     fName: "",
     lName: "",
     email: "",
     password: "",
-    confirmPassword: "",
-   });
+    confirmPassword: ""
+  });
   
-    const [inputValues, setInputValues] = useState ( {
-      fName: "",
-      lName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
+  const [inputValues, setInputValues] = useState ( {
+    fName: "",
+    lName: "",
+    email: "",
+    password: "",
+    confirmPassword: ""
   })
     
-   useEffect(() => {
-    //  checkValidation();
-    },[inputValues])
+  useEffect(() => {
+    checkValidation();
+  },[inputValues])
 
-    const onSubmitHandler = async (e) => {
-      e.preventDefault() 
-      await axios.post("http://localhost:8888/register", inputValues);
-      history("/menu")
+  const onSubmitHandler = async (e) => {
+    e.preventDefault() 
+    await axios.post("http://localhost:8888/register", inputValues);
+    history("/menu")
   }
   
-    const onChangeHandler = (e) => {
-        setInputValues(prevState => {
-          return {
-              ...inputValues,[e.target.name]: e.target.value
-          }
-        })  
-      
+  const onChangeHandler = (e) => {
+    setInputValues(prevState => {
+      return {
+        ...inputValues,[e.target.name]: e.target.value
+      }
+    })
   } 
-  
-  
 
   const checkValidation = () => {
     let errors = JSON.parse(JSON.stringify(validation));
@@ -52,6 +51,7 @@ function Signup() {
     } else {
       errors.fName = "";
     }
+
     //last Name validation
     if (!inputValues.lName.trim()) {
       errors.lName = "Last name is required";
@@ -60,8 +60,6 @@ function Signup() {
     }
 
     // email validation
-    const emailCond =
-      "/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i";
     if (!inputValues.email.trim()) {
       errors.email = "Email is required";
     } 
@@ -71,8 +69,7 @@ function Signup() {
       errors.email = "";
     }
 
-    //password validation
-    
+    //password validation    
     const password = inputValues.password;
     if (!password) {
       errors.password = "password is required";
@@ -102,72 +99,90 @@ function Signup() {
 
     setValidation(errors);
   };
-
-  
-
   return (
     <div>
-     <section className="vh-100 bg-image">
-  <div className="mask d-flex align-items-center h-100 gradient-custom-3">
-    <div className="container h-100">
-      <div className="row d-flex justify-content-center align-items-center h-100">
-        <div className="col-12 col-md-9 col-lg-7 col-xl-6">
-          <div className="card rounded" >
-            <div className="card-body p-5">
-              <h2 className="text-uppercase text-center mb-5">Create an account</h2>
+      <MainNav />
+      <section className="vh-100 bg-image">
+        <div className="mask d-flex align-items-center h-100 gradient-custom-3">
+          <div className="container h-100">
+            <div className="row d-flex justify-content-center align-items-center h-100">
+              <div className="col-12 col-md-9 col-lg-7 col-xl-6">
+                <div className="card rounded" >
+                  <div className="card-body p-5">
+                    <h2 className="text-uppercase text-center mb-5">Create an account</h2>
+                      <form id="registrationForm"
+                        onSubmit={(e)=>onSubmitHandler(e)}>
+                        <div className="form-outline mb-4">
+                          <label className="form-label" htmlFor="form3Example1cg">First Name</label>
+                          <input type="text"
+                            id="form3Example1cg"
+                            name="fName"
+                            className="form-control form-control-lg"
+                            onChange={(e) => onChangeHandler(e)}
+                            defaultValue={inputValues.fName}
+                            required />
+                          {validation.fName && <p>{validation.fName}</p>}
+                        </div>
+                            
+                        <div className="form-outline mb-4">
+                          <label className="form-label" htmlFor="form3Example1cg">Last Name</label>
+                          <input 
+                            type="text"
+                            id="fName" 
+                            name="lName" 
+                            className="form-control form-control-lg" 
+                            onChange={(e)=>onChangeHandler(e)}  
+                            required />
+                            {validation.lName && <p>{validation.lName}</p>}
+                        </div>
 
-              <form id="registrationForm"
-                    onSubmit={(e)=>onSubmitHandler(e)}>
-                <div className="form-outline mb-4">
-                    <label className="form-label" htmlFor="form3Example1cg">First Name</label>
-                        <input type="text" id="form3Example1cg" name="fName" className="form-control form-control-lg" onChange={(e) => onChangeHandler(e)}
-                          defaultValue={inputValues.fName} required />
-                         {validation.fName && <p>{validation.fName}</p>}
-                 </div>
+                        <div className="form-outline mb-4">
+                          <label className="form-label" htmlFor="form3Example3cg">Your Email</label>
+                          <input
+                            type="email"
+                            id="form3Example3cg"
+                            name="email" 
+                            className="form-control form-control-lg" 
+                            onChange={(e) => onChangeHandler(e)} 
+                            required />
+                          {validation.email && <p>{validation.email}</p>}
+                        </div>
+
+                        <div className="form-outline mb-4">
+                          <label className="form-label" htmlFor="form3Example4cg">Password</label>
+                          <input
+                            type="password"
+                            id="form3Example4cg"
+                            name="password"
+                            className="form-control form-control-lg"
+                            onChange={(e) => onChangeHandler(e)}
+                            required />
+                          {validation.password && <p>{validation.password}</p>}
+                        </div>
+
+                        <div className="form-outline mb-4">
+                          <label className="form-label" htmlFor="form3Example4cdg">Confirm Password</label>
+                          <input 
+                            type="password" 
+                            id="form3Example4cdg" 
+                            name="confirmPassword" 
+                            className="form-control form-control-lg" 
+                            onChange={(e) => onChangeHandler(e)}
+                            required />
+                          {validation.confirmPassword && <p>{validation.confirmPassword}</p>}
+                        </div>
                       
-                  <div className="form-outline mb-4">
-                    <label className="form-label" htmlFor="form3Example1cg">Last Name</label>
-                    <input type="text" id="fName" name="lName" className="form-control form-control-lg" onChange={(e)=>onChangeHandler(e)}  required />
-                     {validation.lName && <p>{validation.lName}</p>}
-                </div>
-
-                <div className="form-outline mb-4">
-                  <label className="form-label" htmlFor="form3Example3cg">Your Email</label>
-                  <input type="email" id="form3Example3cg" name="email" className="form-control form-control-lg" onChange={(e)=>onChangeHandler(e)}  required/>
-                  {validation.email && <p>{validation.email}</p>}
-                </div>
-
-                <div className="form-outline mb-4">
-                  <label className="form-label" htmlFor="form3Example4cg">Password</label>
-                  <input type="password" id="form3Example4cg"  name="password" className="form-control form-control-lg" onChange={(e)=>onChangeHandler(e)}required />
-                   {validation.password && <p>{validation.password}</p>}
+                        <button type="submit" id="submit-button">Signup </button>
+                        <p className="text-center text-muted mt-5 mb-0">Have already an account? 
+                        <Link to="/login" className="fw-bold text-body"><u>Login here</u></Link></p>
+                      </form>
                   </div>
-
-                <div className="form-outline mb-4">
-                  <label className="form-label" htmlFor="form3Example4cdg">Confirm Password</label>
-                  <input type="password" id="form3Example4cdg" name="confirmPassword" className="form-control form-control-lg" onChange={(e)=>onChangeHandler(e)}required />
-                 {validation.confirmPassword && <p>{validation.confirmPassword}</p>}
                 </div>
-                
-                  <button type="submit" id="submit-button">Signup </button>
-
-                {/* <div className="d-flex justify-content-center">
-                  <button type="submit" className="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
-                 <Link to="/menu"><button type="submit" className="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button></Link> 
-                </div> */}
-
-                <p className="text-center text-muted mt-5 mb-0">Have already an account? 
-                <Link to="/login" className="fw-bold text-body"><u>Login here</u></Link></p>
-
-              </form>
-
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
     </div>
   )
 }

@@ -1,8 +1,12 @@
 import React from 'react'
+import MenuNav from '../Navbar/MenuNav';
 
-function Profile() {
+function Profile(props) {
   return (
-    <div>My Account</div>
+    <>
+      <MenuNav cartcount={props.cartcount} />
+      <div>My Account</div>
+    </>
   )
 }
 

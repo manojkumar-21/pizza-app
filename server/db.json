@@ -38,52 +38,7 @@
     }
   ],
   "register": [
-    {
-      "fName": "manu",
-      "lName": "gowda",
-      "email": "m@gamil.com",
-      "password": "Manu123",
-      "confirmPassword": "Manu123",
-      "id": 1
-    },
-    {
-      "fName": "manu",
-      "lName": "gowda",
-      "email": "m@gamil.com",
-      "password": "1234455",
-      "confirmPassword": "12334",
-      "id": 2
-    },
-    {
-      "fName": "manu",
-      "lName": "gowda",
-      "email": "m@gamil.com",
-      "password": "123",
-      "confirmPassword": "123",
-      "id": 3
-    }
   ],
   "cartItems": [
-    {
-      "id": 1,
-      "imgUrl": "https://i.ibb.co/z2C76zT/pizza6.jpg",
-      "title": "Cheeseburger",
-      "Rs": 100,
-      "qty": null
-    },
-    {
-      "id": 2,
-      "imgUrl": "https://i.ibb.co/YdHvYMM/pizza.jpg",
-      "title": "Don Bacon",
-      "Rs": 150,
-      "qty": 1
-    },
-    {
-      "id": 3,
-      "imgUrl": "https://i.ibb.co/LJm0S4z/pizza2.jpg",
-      "title": "Carne",
-      "Rs": 200,
-      "qty": 1
-    }
   ]
 }
