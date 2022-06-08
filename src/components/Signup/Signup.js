@@ -172,7 +172,7 @@ function Signup() {
                           {validation.confirmPassword && <p>{validation.confirmPassword}</p>}
                         </div>
                       
-                        <button type="submit" id="submit-button">Signup </button>
+                        <button className='btn btn-primary' type="submit" id="submit-button">Signup </button>
                         <p className="text-center text-muted mt-5 mb-0">Have already an account? 
                         <Link to="/login" className="fw-bold text-body"><u>Login here</u></Link></p>
                       </form>
